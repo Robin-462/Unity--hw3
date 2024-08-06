@@ -24,32 +24,26 @@ public class PistolController : MonoBehaviour
     }
 
     void ShootBullet()
-{
-    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-    if (Physics.Raycast(ray, out RaycastHit hit))
     {
-        Transform muzzle = transform.Find("Muzzle"); 
-        if (muzzle!= null)
+        Camera mainCamera = Camera.main;
+
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit hit))
         {
-            GameObject bullet = Instantiate(bulletPrefab, muzzle.position, Quaternion.identity);
-
-            Vector3 originalDirection = (hit.point - muzzle.position);
-            Vector3 shootDirection = originalDirection.normalized;
-            shootDirection.y = 0;
-            if (shootDirection.z!= 0) 
+            Transform muzzle = transform.Find("Muzzle"); 
+            if (muzzle!= null)
             {
-                shootDirection.z = 0;
-            }
-            if (shootDirection.x < 0) 
-            {
-                shootDirection.x *= -1;  // 如果 X 分量为负，将其变为正
-            }
-            shootDirection = shootDirection.normalized;
+                GameObject bullet = Instantiate(bulletPrefab, muzzle.position, Quaternion.identity);
 
-            bullet.GetComponent<Rigidbody>().velocity = shootDirection * 10f;
+                Vector3 originalDirection = (hit.point - muzzle.position);
+                Vector3 shootDirection = mainCamera.transform.forward;
+                shootDirection.y = 0;
+                shootDirection = shootDirection.normalized;
 
-            bullet.transform.Rotate(new Vector3(0, 90f, 0));
+                bullet.GetComponent<Rigidbody>().velocity = shootDirection * 10f;
+
+                bullet.transform.Rotate(new Vector3(0, 90f, 0));
+            }
         }
     }
-}
 }
