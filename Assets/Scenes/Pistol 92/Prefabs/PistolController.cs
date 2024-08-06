@@ -34,8 +34,17 @@ public class PistolController : MonoBehaviour
             GameObject bullet = Instantiate(bulletPrefab, muzzle.position, Quaternion.identity);
 
             Vector3 originalDirection = (hit.point - muzzle.position);
-            Vector3 shootDirection = new Vector3(originalDirection.x, 0, originalDirection.z);
-            shootDirection = -shootDirection.normalized;
+            Vector3 shootDirection = originalDirection.normalized;
+            shootDirection.y = 0;
+            if (shootDirection.z!= 0) 
+            {
+                shootDirection.z = 0;
+            }
+            if (shootDirection.x < 0) 
+            {
+                shootDirection.x *= -1;  // 如果 X 分量为负，将其变为正
+            }
+            shootDirection = shootDirection.normalized;
 
             bullet.GetComponent<Rigidbody>().velocity = shootDirection * 10f;
 
