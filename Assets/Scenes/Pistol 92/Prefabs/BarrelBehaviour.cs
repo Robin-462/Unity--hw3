@@ -2,26 +2,26 @@ using UnityEngine;
 
 public class BarrelBehaviour : MonoBehaviour
 {
-    public ParticleSystem explosion;
+    public ParticleSystem Explosion;
 
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.name == "barrel 11")
         {
-            if (!explosion.isPlaying)
+            if (!Explosion.isPlaying)
             {
-                explosion.Play();
+                Explosion.Play();
             }
         }
     }
 
     void Update()
     {
-        if (explosion.isPlaying)
+        if (Explosion.isPlaying)
         {
             if (!IsCollidingWithBarrel11())
             {
-                explosion.Stop();
+                Explosion.Stop();
             }
         }
     }
