@@ -5568,12 +5568,24 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 518182606}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.25611234
   m_Height: 0.90386224
   m_Direction: 1
   m_Center: {x: 0.0029163808, y: 0.4495703, z: 0.0030500293}
+--- !u!114 &518182611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518182606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34af85bd42df3431fbd4799d7b99a7eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &539213795
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6777,7 +6789,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 15ca5b8fa431dc04291a79cadcd19874, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.206
+      value: 0.198
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 15ca5b8fa431dc04291a79cadcd19874, type: 3}
       propertyPath: m_LocalPosition.z

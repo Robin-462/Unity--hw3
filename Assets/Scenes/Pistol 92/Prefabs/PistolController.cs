@@ -43,7 +43,29 @@ public class PistolController : MonoBehaviour
                 bullet.GetComponent<Rigidbody>().velocity = shootDirection * 10f;
 
                 bullet.transform.Rotate(new Vector3(0, 90f, 0));
+
+                Bullet bulletComponent = bullet.GetComponent<Bullet>();
+                if (bulletComponent!= null)
+                {
+                    bulletComponent.SetLifeTime(5f); 
+                }
             }
         }
+    }
+}
+
+public class Bullet : MonoBehaviour
+{
+    private float lifeTime;
+
+    public void SetLifeTime(float time)
+    {
+        lifeTime = time;
+        Invoke("DestroyBullet", lifeTime);
+    }
+
+    private void DestroyBullet()
+    {
+        Destroy(gameObject);
     }
 }
