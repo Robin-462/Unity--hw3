@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6334837120133911850}
   - component: {fileID: 8382733973028444610}
   - component: {fileID: 3039865617090108325}
+  - component: {fileID: 438604913896698920}
   m_Layer: 0
   m_Name: Pistol Bullet
   m_TagString: Untagged
@@ -114,3 +115,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.00013500002, y: 0.00013500001, z: 0.0011249998}
   m_Center: {x: 0, y: 3.637979e-12, z: 0.00018749994}
+--- !u!114 &438604913896698920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6322944795806320946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34af85bd42df3431fbd4799d7b99a7eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleSystem: {fileID: 0}

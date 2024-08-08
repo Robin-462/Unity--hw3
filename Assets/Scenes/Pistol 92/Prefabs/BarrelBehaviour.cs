@@ -1,29 +1,41 @@
 using UnityEngine;
 
-public class BarrelTriggerScript : MonoBehaviour
+public class BarrelBehaviour : MonoBehaviour
 {
-    private ParticleSystem fire;
-    private bool isCollidedWithBullet = false;
+    public ParticleSystem explosion;
 
-    private void Start()
+    void OnCollisionEnter(Collision collision)
     {
-        fire = GetComponentInChildren<ParticleSystem>();
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.name == "Pistol Bullet")
+        if (collision.gameObject.name == "barrel 11")
         {
-            isCollidedWithBullet = true;
+            if (!explosion.isPlaying)
+            {
+                explosion.Play();
+            }
         }
     }
 
-    private void Update()
+    void Update()
     {
-        if (isCollidedWithBullet)
+        if (explosion.isPlaying)
         {
-            fire.Play();
-            isCollidedWithBullet = false;
+            if (!IsCollidingWithBarrel11())
+            {
+                explosion.Stop();
+            }
         }
+    }
+
+    bool IsCollidingWithBarrel11()
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 0.1f); 
+        foreach (Collider collider in colliders)
+        {
+            if (collider.gameObject.name == "barrel 11")
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }
