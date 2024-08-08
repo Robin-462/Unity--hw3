@@ -5346,7 +5346,7 @@ PrefabInstance:
     - target: {fileID: 8166435607492384779, guid: 4232a9d481a5b2b478fbfbd2859b34d2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.01
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 8166435607492384779, guid: 4232a9d481a5b2b478fbfbd2859b34d2,
         type: 3}
@@ -5392,6 +5392,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: barrel 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8799700821632549553, guid: 4232a9d481a5b2b478fbfbd2859b34d2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4232a9d481a5b2b478fbfbd2859b34d2, type: 3}
@@ -5568,12 +5573,12 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 518182606}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.25611234
-  m_Height: 0.90386224
+  m_Radius: 0.29
+  m_Height: 1.2
   m_Direction: 1
-  m_Center: {x: 0.0029163808, y: 0.4495703, z: 0.0030500293}
+  m_Center: {x: 0.0029163808, y: 0.6, z: 0.0030500293}
 --- !u!114 &518182611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6767,6 +6772,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Explosion
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 15ca5b8fa431dc04291a79cadcd19874, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 15ca5b8fa431dc04291a79cadcd19874, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 15ca5b8fa431dc04291a79cadcd19874, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 15ca5b8fa431dc04291a79cadcd19874, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 15ca5b8fa431dc04291a79cadcd19874, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -7662,7 +7683,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7c0d4d6ccc753ef45ad79c580938a86c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 25.37
+      value: 25.554
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7c0d4d6ccc753ef45ad79c580938a86c, type: 3}
       propertyPath: m_LocalPosition.y
