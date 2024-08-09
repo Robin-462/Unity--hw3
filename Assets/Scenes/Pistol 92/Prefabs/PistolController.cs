@@ -3,13 +3,7 @@ using UnityEngine;
 public class PistolController : MonoBehaviour
 {
     public GameObject bulletPrefab;
-
     private float lastShotTime;
-
-    void Start()
-    {
-        lastShotTime = 0f;
-    }
 
     void Update()
     {
@@ -26,30 +20,34 @@ public class PistolController : MonoBehaviour
     void ShootBullet()
     {
         Camera mainCamera = Camera.main;
+        Ray ray = mainCamera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
+        Vector3 shootDirection;
 
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
-            Transform muzzle = transform.Find("Muzzle"); 
-            if (muzzle!= null)
+            shootDirection = (hit.point - mainCamera.transform.position).normalized;
+        }
+        else
+        {
+            shootDirection = mainCamera.transform.forward;
+        }
+
+        Transform muzzle = transform.Find("Muzzle");
+        if (muzzle != null)
+        {
+            GameObject bullet = Instantiate(bulletPrefab, muzzle.position, Quaternion.identity);
+            bullet.GetComponent<Rigidbody>().velocity = shootDirection * 10f;
+            bullet.transform.rotation = Quaternion.LookRotation(shootDirection);
+
+            Bullet bulletComponent = bullet.GetComponent<Bullet>();
+            if (bulletComponent != null)
             {
-                GameObject bullet = Instantiate(bulletPrefab, muzzle.position, Quaternion.identity);
-
-                Vector3 originalDirection = (hit.point - muzzle.position);
-                Vector3 shootDirection = mainCamera.transform.forward;
-                shootDirection.y = 0;
-                shootDirection = shootDirection.normalized;
-
-                bullet.GetComponent<Rigidbody>().velocity = shootDirection * 10f;
-
-                bullet.transform.Rotate(new Vector3(0, 90f, 0));
-
-                Bullet bulletComponent = bullet.GetComponent<Bullet>();
-                if (bulletComponent!= null)
-                {
-                    bulletComponent.SetLifeTime(5f); 
-                }
+                bulletComponent.SetLifeTime(5f);
             }
+        }
+        else
+        {
+            Debug.LogError("Muzzle not found on the object!");
         }
     }
 }
