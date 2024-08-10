@@ -2,12 +2,19 @@ using UnityEngine;
 
 public class BarrelBehaviour : MonoBehaviour
 {
-    private ParticleSystem explosionEffect;
+    private ParticleSystem[] ExplosionEffects;
 
     void Start()
     {
-        explosionEffect = GetComponentInChildren<ParticleSystem>();
-        Debug.Log("Explosion component found: " + (explosionEffect != null));
+        ExplosionEffects = GetComponentsInChildren<ParticleSystem>();
+
+        if (ExplosionEffects != null)
+        {
+            if (ExplosionEffects.Length > 0)
+            {
+                Debug.Log("Explosion component found: true");
+            }
+        }
 
         Collider barrelCollider = GetComponent<Collider>();
         if (barrelCollider != null)
@@ -25,21 +32,32 @@ public class BarrelBehaviour : MonoBehaviour
     {
         Debug.Log("OnTriggerEnter method called");
         Debug.Log("Collision with: " + other.gameObject.name);
+
         if (other.gameObject.name.Contains("Pistol Bullet"))
         {
             Debug.Log("Pistol Bullet hit the barrel!");
 
-            if (explosionEffect != null)
+            if (ExplosionEffects != null)
             {
-                explosionEffect.Play();
-                explosionEffect.transform.parent = null;
-                Destroy(gameObject, 0.1f);
-                Destroy(explosionEffect.gameObject, explosionEffect.main.duration);
+                if (ExplosionEffects.Length > 0)
+                {
+                    foreach (var effect in ExplosionEffects)
+                    {
+                        if (effect != null)
+                        {
+                            effect.Play();
+                            effect.transform.parent = null;
+                            Destroy(effect.gameObject, effect.main.duration);
+                        }
+                    }
+                }
             }
             else
             {
                 Debug.LogError("Explosion effect is missing!");
             }
+
+            Destroy(gameObject, 0.1f);
         }
     }
 }
