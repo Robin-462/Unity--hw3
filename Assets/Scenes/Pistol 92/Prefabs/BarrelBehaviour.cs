@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class BarrelBehaviour : MonoBehaviour
 {
-    private ParticleSystem[] ExplosionEffects;
+    private ParticleSystem[] explosionEffects;
 
     void Start()
     {
-        ExplosionEffects = GetComponentsInChildren<ParticleSystem>();
+        explosionEffects = GetComponentsInChildren<ParticleSystem>();
 
         Collider barrelCollider = GetComponent<Collider>();
-        if (barrelCollider != null)
+        if (barrelCollider!= null)
         {
             barrelCollider.isTrigger = true;
         }
@@ -19,19 +19,28 @@ public class BarrelBehaviour : MonoBehaviour
     {
         if (other.gameObject.name.Contains("Pistol Bullet"))
         {
-            if (ExplosionEffects != null)
+            if (explosionEffects == null)
             {
-                if (ExplosionEffects.Length > 0)
+                Debug.LogError("ExplosionEffects is null!");
+                return;
+            }
+            if (explosionEffects.Length == 0)
+            {
+                Debug.LogError("No explosion effects found!");
+                return;
+            }
+
+            foreach (var effect in explosionEffects)
+            {
+                if (effect!= null)
                 {
-                    foreach (var effect in ExplosionEffects)
-                    {
-                        if (effect != null)
-                        {
-                            effect.Play();
-                            effect.transform.parent = null;
-                            Destroy(effect.gameObject, effect.main.duration);
-                        }
-                    }
+                    effect.Play();
+                    effect.transform.parent = null;
+                    Destroy(effect.gameObject, effect.main.duration);
+                }
+                else
+                {
+                    Debug.LogWarning("Null effect found in the array.");
                 }
             }
 
