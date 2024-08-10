@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000014232435074, guid: 0a36d45e1b007e14b884de828f3b6938, type: 3}
       propertyPath: m_Name
-      value: Basic_BanditPrefab (2)
+      value: bandit 1
       objectReference: {fileID: 0}
     - target: {fileID: 4000012322933416, guid: 0a36d45e1b007e14b884de828f3b6938, type: 3}
       propertyPath: m_RootOrder
@@ -5495,7 +5495,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 33
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &273968997
 PrefabInstance:
@@ -15435,7 +15435,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000014232435074, guid: 0a36d45e1b007e14b884de828f3b6938, type: 3}
       propertyPath: m_Name
-      value: Basic_BanditPrefab
+      value: bandit 2
       objectReference: {fileID: 0}
     - target: {fileID: 4000012322933416, guid: 0a36d45e1b007e14b884de828f3b6938, type: 3}
       propertyPath: m_RootOrder
@@ -15748,7 +15748,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100010, guid: fe55e5a0c1bcd72488aa4508bea6f93b, type: 3}
       propertyPath: m_Name
-      value: Basic_Bandit (2)
+      value: bandit 3
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: fe55e5a0c1bcd72488aa4508bea6f93b, type: 3}
       propertyPath: m_RootOrder
@@ -15817,7 +15817,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000014232435074, guid: 0a36d45e1b007e14b884de828f3b6938, type: 3}
       propertyPath: m_Name
-      value: Basic_BanditPrefab (1)
+      value: bandit 4
       objectReference: {fileID: 0}
     - target: {fileID: 4000012322933416, guid: 0a36d45e1b007e14b884de828f3b6938, type: 3}
       propertyPath: m_RootOrder
@@ -15875,6 +15875,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 95000011610634314, guid: 0a36d45e1b007e14b884de828f3b6938,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 4675f30ca1f2ec4419c0a84c62a76e47, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a36d45e1b007e14b884de828f3b6938, type: 3}
 --- !u!1001 &657855583
@@ -15886,7 +15891,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100010, guid: fe55e5a0c1bcd72488aa4508bea6f93b, type: 3}
       propertyPath: m_Name
-      value: Basic_Bandit (1)
+      value: bandit 6
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: fe55e5a0c1bcd72488aa4508bea6f93b, type: 3}
       propertyPath: m_RootOrder
@@ -16077,7 +16082,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000014232435074, guid: 0a36d45e1b007e14b884de828f3b6938, type: 3}
       propertyPath: m_Name
-      value: Basic_BanditPrefab (8)
+      value: bandit 10
       objectReference: {fileID: 0}
     - target: {fileID: 4000012322933416, guid: 0a36d45e1b007e14b884de828f3b6938, type: 3}
       propertyPath: m_RootOrder
@@ -21145,75 +21150,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensitivity: 3
   cameraToRotate: {fileID: 1772444818}
---- !u!1001 &987009099
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3698605842638305650, guid: ba2e5d86148740648bda209e2fb8e3ec,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 31
-      objectReference: {fileID: 0}
-    - target: {fileID: 3698605842638305650, guid: ba2e5d86148740648bda209e2fb8e3ec,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 7.5174384
-      objectReference: {fileID: 0}
-    - target: {fileID: 3698605842638305650, guid: ba2e5d86148740648bda209e2fb8e3ec,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.0000038146973
-      objectReference: {fileID: 0}
-    - target: {fileID: 3698605842638305650, guid: ba2e5d86148740648bda209e2fb8e3ec,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 78.68851
-      objectReference: {fileID: 0}
-    - target: {fileID: 3698605842638305650, guid: ba2e5d86148740648bda209e2fb8e3ec,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 3698605842638305650, guid: ba2e5d86148740648bda209e2fb8e3ec,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3698605842638305650, guid: ba2e5d86148740648bda209e2fb8e3ec,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 3698605842638305650, guid: ba2e5d86148740648bda209e2fb8e3ec,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3698605842638305650, guid: ba2e5d86148740648bda209e2fb8e3ec,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3698605842638305650, guid: ba2e5d86148740648bda209e2fb8e3ec,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 3698605842638305650, guid: ba2e5d86148740648bda209e2fb8e3ec,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7713930554244933637, guid: ba2e5d86148740648bda209e2fb8e3ec,
-        type: 3}
-      propertyPath: m_Name
-      value: Cowboy_RIO
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ba2e5d86148740648bda209e2fb8e3ec, type: 3}
 --- !u!1 &1078150458 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 15ca5b8fa431dc04291a79cadcd19874,
@@ -40975,7 +40911,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000014232435074, guid: 0a36d45e1b007e14b884de828f3b6938, type: 3}
       propertyPath: m_Name
-      value: Basic_BanditPrefab (5)
+      value: bandit 12
       objectReference: {fileID: 0}
     - target: {fileID: 4000012322933416, guid: 0a36d45e1b007e14b884de828f3b6938, type: 3}
       propertyPath: m_RootOrder
@@ -46202,7 +46138,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000014232435074, guid: 0a36d45e1b007e14b884de828f3b6938, type: 3}
       propertyPath: m_Name
-      value: Basic_BanditPrefab (4)
+      value: bandit 11
       objectReference: {fileID: 0}
     - target: {fileID: 4000012322933416, guid: 0a36d45e1b007e14b884de828f3b6938, type: 3}
       propertyPath: m_RootOrder
@@ -51345,7 +51281,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000014232435074, guid: 0a36d45e1b007e14b884de828f3b6938, type: 3}
       propertyPath: m_Name
-      value: Basic_BanditPrefab (3)
+      value: bandit 9
       objectReference: {fileID: 0}
     - target: {fileID: 4000012322933416, guid: 0a36d45e1b007e14b884de828f3b6938, type: 3}
       propertyPath: m_RootOrder
@@ -56461,7 +56397,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100010, guid: fe55e5a0c1bcd72488aa4508bea6f93b, type: 3}
       propertyPath: m_Name
-      value: Basic_Bandit
+      value: bandit 8
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: fe55e5a0c1bcd72488aa4508bea6f93b, type: 3}
       propertyPath: m_RootOrder
@@ -56697,7 +56633,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000014232435074, guid: 0a36d45e1b007e14b884de828f3b6938, type: 3}
       propertyPath: m_Name
-      value: Basic_BanditPrefab (7)
+      value: bandit 7
       objectReference: {fileID: 0}
     - target: {fileID: 4000012322933416, guid: 0a36d45e1b007e14b884de828f3b6938, type: 3}
       propertyPath: m_RootOrder
@@ -61775,7 +61711,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000014232435074, guid: 0a36d45e1b007e14b884de828f3b6938, type: 3}
       propertyPath: m_Name
-      value: Basic_BanditPrefab (6)
+      value: bandit 5
       objectReference: {fileID: 0}
     - target: {fileID: 4000012322933416, guid: 0a36d45e1b007e14b884de828f3b6938, type: 3}
       propertyPath: m_RootOrder
@@ -61948,7 +61884,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 32
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &2065033522
 PrefabInstance:
