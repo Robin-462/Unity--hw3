@@ -44,6 +44,7 @@ public class BarrelBehaviour : MonoBehaviour
                 }
             }
 
+            Destroy(other.gameObject);
             Destroy(gameObject, 0.1f);
         }
     }
