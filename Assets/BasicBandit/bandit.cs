@@ -1,21 +1,26 @@
 using UnityEngine;
 
-public class Bandit : MonoBehaviour
+public class bandit : MonoBehaviour
 {
+    public int health = 100;
+
     public GameObject bloodSprayPrefab;
-    private int bulletHits = 0;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name.Contains("Pistol Bullet"))
         {
-            bulletHits++;
+            TakeDamage(50);
             PlayBloodSpray(other.transform.position);
-            Destroy(other.gameObject);
-            if (bulletHits == 2)
-            {
-                Die();
-            }
+        }
+    }
+
+    private void TakeDamage(int damageAmount)
+    {
+        health -= damageAmount;
+        if (health <= 0)
+        {
+            Die();
         }
     }
 
@@ -26,7 +31,6 @@ public class Bandit : MonoBehaviour
 
     private void Die()
     {
-        Destroy(gameObject);
-        Debug.Log("Bandit died!");
+        Debug.Log("bandit died!");
     }
 }
