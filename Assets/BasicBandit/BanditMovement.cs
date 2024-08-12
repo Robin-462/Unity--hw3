@@ -3,11 +3,15 @@ using UnityEngine;
 public class BanditMovement : MonoBehaviour
 {
     public float moveSpeed = 2f;
+    public float minSpeedForWalk = 1f; 
     private Transform cameraTransform;
+    private Animator animator;
+    private bool isMoving;
 
     void Start()
     {
         cameraTransform = Camera.main.transform;
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -16,6 +20,22 @@ public class BanditMovement : MonoBehaviour
         direction.y = 0;
         Quaternion rotation = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * moveSpeed);
-        transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+
+        float currentSpeed = direction.magnitude;
+        isMoving = currentSpeed > 0;
+
+        if (currentSpeed >= minSpeedForWalk)
+        {
+            animator.SetBool("IsMoving", true);
+        }
+        else
+        {
+            animator.SetBool("IsMoving", false);
+        }
+
+        if (isMoving)
+        {
+            transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+        }
     }
 }

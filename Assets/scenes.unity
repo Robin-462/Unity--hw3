@@ -730,6 +730,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
+  minSpeedForWalk: 1
 --- !u!1001 &653197908
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1933,6 +1934,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
+  minSpeedForWalk: 1
 --- !u!1001 &1422226289
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2171,6 +2173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
+  minSpeedForWalk: 1
 --- !u!1001 &1541188461
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2491,6 +2494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
+  minSpeedForWalk: 1
 --- !u!1001 &1691845365
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2676,7 +2680,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012322933416, guid: 0a36d45e1b007e14b884de828f3b6938, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 60.83
+      value: 61.07
       objectReference: {fileID: 0}
     - target: {fileID: 4000012322933416, guid: 0a36d45e1b007e14b884de828f3b6938, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2804,6 +2808,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
+  minSpeedForWalk: 1
 --- !u!114 &1812065197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2920,6 +2925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
+  minSpeedForWalk: 1
 --- !u!114 &1853132963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2995,6 +3001,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
+  minSpeedForWalk: 1
 --- !u!1001 &1891548401
 PrefabInstance:
   m_ObjectHideFlags: 0
