@@ -1,32 +1,51 @@
 using UnityEngine;
 
-public class Bandit : MonoBehaviour
+public class BarrelBehaviour : MonoBehaviour
 {
-    public GameObject bloodSprayPrefab;
-    private int bulletHits = 0;
+    private ParticleSystem[] explosionEffects;
 
-    private void OnTriggerEnter(Collider other)
+    void Start()
     {
-        if (other.gameObject.name.Contains("Pistol Bullet"))
+        explosionEffects = GetComponentsInChildren<ParticleSystem>();
+
+        Collider barrelCollider = GetComponent<Collider>();
+        if (barrelCollider!= null)
         {
-            bulletHits++;
-            PlayBloodSpray(other.transform.position);
-            Destroy(other.gameObject);
-            if (bulletHits == 2)
-            {
-                Die();
-            }
+            barrelCollider.isTrigger = true;
         }
     }
 
-    private void PlayBloodSpray(Vector3 position)
+    void OnTriggerEnter(Collider other)
     {
-        Instantiate(bloodSprayPrefab, position, Quaternion.identity);
-    }
+        if (other.gameObject.name.Contains("Pistol Bullet"))
+        {
+            if (explosionEffects == null)
+            {
+                Debug.LogError("ExplosionEffects is null!");
+                return;
+            }
+            if (explosionEffects.Length == 0)
+            {
+                Debug.LogError("No explosion effects found!");
+                return;
+            }
 
-    private void Die()
-    {
-        Destroy(gameObject);
-        Debug.Log("Bandit died!");
+            foreach (var effect in explosionEffects)
+            {
+                if (effect!= null)
+                {
+                    effect.Play();
+                    effect.transform.parent = null;
+                    Destroy(effect.gameObject, effect.main.duration);
+                }
+                else
+                {
+                    Debug.LogWarning("Null effect found in the array.");
+                }
+            }
+
+            Destroy(other.gameObject);
+            Destroy(gameObject, 0.1f);
+        }
     }
 }

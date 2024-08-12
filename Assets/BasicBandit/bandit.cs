@@ -3,7 +3,6 @@ using UnityEngine;
 public class bandit : MonoBehaviour
 {
     public int health = 100;
-
     public GameObject bloodSprayPrefab;
 
     private void OnTriggerEnter(Collider other)
@@ -12,6 +11,7 @@ public class bandit : MonoBehaviour
         {
             TakeDamage(50);
             PlayBloodSpray(other.transform.position);
+            Destroy(other.gameObject);
         }
     }
 
@@ -26,11 +26,13 @@ public class bandit : MonoBehaviour
 
     private void PlayBloodSpray(Vector3 position)
     {
-        Instantiate(bloodSprayPrefab, position, Quaternion.identity);
+        GameObject bloodSpray = Instantiate(bloodSprayPrefab, position, Quaternion.identity);
+        bloodSpray.transform.SetParent(transform);
     }
 
     private void Die()
     {
         Debug.Log("bandit died!");
+        Destroy(gameObject);
     }
 }
