@@ -3,7 +3,22 @@ using UnityEngine;
 public class bandit : MonoBehaviour
 {
     public int health = 100;
-    public GameObject bloodSprayPrefab;
+    public GameObject BloodSprayFX;
+    private Animator animator;
+    private Rigidbody rb;
+    private bool IsMoving = false;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
+    }
+
+    private void Update()
+    {
+        if (!IsMoving)
+            return;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -20,19 +35,30 @@ public class bandit : MonoBehaviour
         health -= damageAmount;
         if (health <= 0)
         {
-            Die();
+            TriggerDeathAnimation();
         }
     }
 
     private void PlayBloodSpray(Vector3 position)
     {
-        GameObject bloodSpray = Instantiate(bloodSprayPrefab, position, Quaternion.identity);
+        GameObject bloodSpray = Instantiate(BloodSprayFX, position, Quaternion.identity);
         bloodSpray.transform.SetParent(transform);
     }
 
-    private void Die()
+    private void TriggerDeathAnimation()
     {
-        Debug.Log("bandit died!");
-        Destroy(gameObject);
+        animator.Play("death1");
+
+        // 停止所有移动
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        rb.isKinematic = true;
+        rb.constraints = RigidbodyConstraints.FreezeAll;
+
+        Destroy(BloodSprayFX);
+        IsMoving = false;
+
+        // 禁用 Animator 组件
+        animator.enabled = false;
     }
 }

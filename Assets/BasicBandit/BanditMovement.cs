@@ -16,26 +16,35 @@ public class BanditMovement : MonoBehaviour
 
     void Update()
     {
-        Vector3 direction = cameraTransform.position - transform.position;
-        direction.y = 0;
-        Quaternion rotation = Quaternion.LookRotation(direction);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * moveSpeed);
-
-        float currentSpeed = direction.magnitude;
-        isMoving = currentSpeed > 0;
-
-        if (currentSpeed >= minSpeedForWalk)
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("death1"))
         {
-            animator.SetBool("IsMoving", true);
+            Vector3 direction = cameraTransform.position - transform.position;
+            direction.y = 0;
+            Quaternion rotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * moveSpeed);
+
+            float currentSpeed = direction.magnitude;
+            isMoving = currentSpeed > 0;
+
+            if (currentSpeed >= minSpeedForWalk)
+            {
+                animator.SetBool("IsMoving", true);
+            }
+            else
+            {
+                animator.SetBool("IsMoving", false);
+            }
+
+            if (isMoving)
+            {
+                transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+            }
         }
         else
         {
-            animator.SetBool("IsMoving", false);
-        }
-
-        if (isMoving)
-        {
-            transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+            isMoving = false;
+            transform.position = transform.position;
+            transform.rotation = transform.rotation;
         }
     }
 }
