@@ -5,13 +5,13 @@ public class BanditMovement : MonoBehaviour
     public float moveSpeed = 2f;
     public float minSpeedForWalk = 1f; 
     private Transform cameraTransform;
-    private Animator anim;
+    private Animator animator;
     private bool isMoving;
 
     void Start()
     {
         cameraTransform = Camera.main.transform;
-        anim = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -26,11 +26,11 @@ public class BanditMovement : MonoBehaviour
 
         if (currentSpeed >= minSpeedForWalk)
         {
-            anim.SetBool("IsMoving", true);
+            animator.SetBool("IsMoving", true);
         }
         else
         {
-            anim.SetBool("IsMoving", false);
+            animator.SetBool("IsMoving", false);
         }
 
         if (isMoving)
