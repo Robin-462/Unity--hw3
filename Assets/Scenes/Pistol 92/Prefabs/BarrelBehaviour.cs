@@ -3,6 +3,8 @@ using UnityEngine;
 public class BarrelBehaviour : MonoBehaviour
 {
     private ParticleSystem[] explosionEffects;
+    public AudioClip barrelSound;
+    private AudioSource audioSource;
 
     void Start()
     {
@@ -13,6 +15,8 @@ public class BarrelBehaviour : MonoBehaviour
         {
             barrelCollider.isTrigger = true;
         }
+
+        audioSource = gameObject.AddComponent<AudioSource>();
     }
 
     void OnTriggerEnter(Collider other)
@@ -43,6 +47,9 @@ public class BarrelBehaviour : MonoBehaviour
                     Debug.LogWarning("Null effect found in the array.");
                 }
             }
+
+            audioSource.clip = barrelSound;
+            audioSource.Play();
 
             Destroy(other.gameObject);
             Destroy(gameObject, 0.1f);
