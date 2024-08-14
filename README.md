@@ -6,7 +6,26 @@ and a few bandits (non-player characters – NPCs). Please develop a pseudo-game
 # Implemented Features
 ### Core Features
 3. **Shoot at Targets**
-   The player’s avatar should be able to shoot at least two types of targets,which include barrels and bandits. Bullets should be fired with the ‘F’ key. Spawn bullet
-   prefabs and send them down range along the player’s line of sight, detecting collisions with game objects. Barrels are full of TNT and should explode spectacularly when hit. Use a particle
-   system to simulate the explosion; delete the barrel game object and replace it with debris as the explosion finishes (broken barrel debris are provided for you). When a bandit is hit, you
-   should play a death animation with the bandit’s animation controller. Limit the player’s rate of fire to 1 shot per second. 
+   Player shooting:
+   Target types:
+   Barrels: Full of TNT, explode spectacularly when hit using a particle system. Delete the barrel object and replace with debris on explosion finish.
+   Bandits: Play death animation with the bandit's animation controller when hit.
+   Bullet firing: Press 'F' key. Spawn bullet prefabs and send along player's line of sight, detect collisions.
+   Fire rate limit: 1 shot per second.
+
+# Installation Instructions
+
+1. **Setup Unity Project**
+   - Launch Unity Hub and select "Create new project".
+   - Ensure all necessary packages and plugins used in the project are installed.
+   - Open the "Package Manager" in the Unity Editor and verify all packages are correctly installed.
+
+2. **Import Project Files**
+   - Unzip the project folder and open it in Unity.
+
+3. **Rendering Pipeline**
+   - This project uses Unity's Universal Rendering Pipeline (URP).
+### Assets
+
+   **List of Assets**
+   -  The project includes a mix of provided and downloaded assets from the Unity Asset Store which include the following:Animations, Audio, BasicBandit, BloodDecalsAndRffects, Controllers, HousePack, Metal_Barrels, Scenes, True Explosions, Tutoriallnfo.
