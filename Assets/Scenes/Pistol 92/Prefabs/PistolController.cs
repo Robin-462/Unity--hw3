@@ -3,7 +3,16 @@ using UnityEngine;
 public class PistolController : MonoBehaviour
 {
     public GameObject bulletPrefab;
+    public AudioSource audioSource;
     private float lastShotTime;
+
+    void Start()
+    {
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
+    }
 
     void Update()
     {
@@ -43,6 +52,11 @@ public class PistolController : MonoBehaviour
             if (bulletComponent != null)
             {
                 bulletComponent.SetLifeTime(5f);
+            }
+
+            if (audioSource != null)
+            {
+                audioSource.Play();
             }
         }
         else
