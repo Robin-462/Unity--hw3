@@ -12,6 +12,12 @@ and a few bandits (non-player characters – NPCs). Please develop a pseudo-game
    Bandits: Play death animation with the bandit's animation controller when hit.
    Bullet firing: Press 'F' key. Spawn bullet prefabs and send along player's line of sight, detect collisions.
    Fire rate limit: 1 shot per second.
+4. **Dynamic Soundtrack:**
+   a) Suspense Sound: player gets near the Supply Store
+      Fight Sound: player gets start shooting
+      Default Sound: The other two sounds are not played.
+   b) Five Foley effects: Footsteps, gunshots, explosions, subtle wind ambience, and bandit pain/death sounds (when shot)
+   c) Unique Taunts: Each bandit direct 2 - 3 taunts to the players
 
 # Installation Instructions
 
