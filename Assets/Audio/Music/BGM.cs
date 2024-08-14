@@ -5,10 +5,12 @@ public class BGM : MonoBehaviour
     public AudioClip defaultMusic;
     public AudioClip fightMusic;
     public AudioClip suspenseMusic;
+    public AudioClip windSound;
 
     private AudioSource audioSource;
+    private AudioSource windAudioSource;
     private bool isInSupplyStore = false;
-    private bool hasSwitchedToFightMusic = false;  // 新增：用于标记是否已经切换到 fightMusic
+    private bool hasSwitchedToFightMusic = false;
 
     void Start()
     {
@@ -16,16 +18,21 @@ public class BGM : MonoBehaviour
         audioSource.clip = defaultMusic;
         audioSource.loop = true;
         audioSource.Play();
+
+        windAudioSource = gameObject.AddComponent<AudioSource>();
+        windAudioSource.clip = windSound;
+        windAudioSource.loop = true;
+        windAudioSource.Play();
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            if (!hasSwitchedToFightMusic)  // 只有在未切换过的情况下才切换
+            if (!hasSwitchedToFightMusic)
             {
                 SwitchToFightMusic();
-                hasSwitchedToFightMusic = true;  // 切换后标记为已切换
+                hasSwitchedToFightMusic = true;
             }
         }
 

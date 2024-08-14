@@ -22,6 +22,8 @@ public class bandit : MonoBehaviour
     {
         distanceToCamera = Vector3.Distance(Camera.main.transform.position, transform.position);
 
+        IsMoving = true; 
+
         if (IsMoving)
         {
             if (distanceToCamera <= 10f)
