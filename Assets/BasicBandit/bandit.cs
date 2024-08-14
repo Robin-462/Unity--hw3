@@ -6,10 +6,14 @@ public class bandit : MonoBehaviour
     public GameObject BloodSprayFX;
     private Animator animator;
     private bool IsMoving = false;
+    public AudioClip deathSound;
+
+    private AudioSource audioSource;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
+        audioSource = gameObject.AddComponent<AudioSource>();
     }
 
     private void Update()
@@ -53,5 +57,12 @@ public class bandit : MonoBehaviour
         animator.Play("death1");
         IsMoving = false;
         Destroy(BloodSprayFX);
+        PlayDeathSound();
+    }
+
+    private void PlayDeathSound()
+    {
+        audioSource.clip = deathSound;
+        audioSource.Play();
     }
 }

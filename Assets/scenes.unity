@@ -568,8 +568,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e99a517163f4149a3a53e9b28326af6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundMusic: {fileID: 8300000, guid: 30189ce05c389e04f9b023dfbb66b910, type: 3}
-  shootingMusic: {fileID: 0}
+  defaultMusic: {fileID: 8300000, guid: 30189ce05c389e04f9b023dfbb66b910, type: 3}
+  fightMusic: {fileID: 8300000, guid: fccfa779691183446a548527e0ec3ec1, type: 3}
+  suspenseMusic: {fileID: 8300000, guid: 33741693fcc0dd24284c2d770be2f841, type: 3}
 --- !u!4 &288831158
 Transform:
   m_ObjectHideFlags: 0
@@ -2530,7 +2531,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1769217604530678, guid: b32c7959973c2cc489a5a0fcec92c87a, type: 3}
       propertyPath: m_Name
-      value: SM_Bld_Saloon_01 (1)
+      value: Supply Store
       objectReference: {fileID: 0}
     - target: {fileID: 4764298106409884, guid: b32c7959973c2cc489a5a0fcec92c87a, type: 3}
       propertyPath: m_RootOrder
