@@ -8,6 +8,7 @@ public class BGM : MonoBehaviour
 
     private AudioSource audioSource;
     private bool isInSupplyStore = false;
+    private bool hasSwitchedToFightMusic = false;  // 新增：用于标记是否已经切换到 fightMusic
 
     void Start()
     {
@@ -21,7 +22,11 @@ public class BGM : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            SwitchToFightMusic();
+            if (!hasSwitchedToFightMusic)  // 只有在未切换过的情况下才切换
+            {
+                SwitchToFightMusic();
+                hasSwitchedToFightMusic = true;  // 切换后标记为已切换
+            }
         }
 
         if (IsNearSupplyStore())

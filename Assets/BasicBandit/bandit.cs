@@ -7,8 +7,10 @@ public class bandit : MonoBehaviour
     private Animator animator;
     private bool IsMoving = false;
     public AudioClip deathSound;
+    public AudioClip footstepSound;
 
     private AudioSource audioSource;
+    private float distanceToCamera;
 
     private void Start()
     {
@@ -18,6 +20,16 @@ public class bandit : MonoBehaviour
 
     private void Update()
     {
+        distanceToCamera = Vector3.Distance(Camera.main.transform.position, transform.position);
+
+        if (IsMoving)
+        {
+            if (distanceToCamera <= 10f)
+            {
+                PlayFootstepSound();
+            }
+        }
+
         if (IsMoving)
         {
             if (!animator.GetCurrentAnimatorStateInfo(0).IsName("death1"))
@@ -58,6 +70,15 @@ public class bandit : MonoBehaviour
         IsMoving = false;
         Destroy(BloodSprayFX);
         PlayDeathSound();
+    }
+
+    private void PlayFootstepSound()
+    {
+        if (!audioSource.isPlaying)
+        {
+            audioSource.clip = footstepSound;
+            audioSource.Play();
+        }
     }
 
     private void PlayDeathSound()
