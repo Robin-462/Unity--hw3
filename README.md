@@ -28,4 +28,4 @@ and a few bandits (non-player characters – NPCs). Please develop a pseudo-game
 ### Assets
 
    **List of Assets**
-   -  The project includes a mix of provided and downloaded assets from the Unity Asset Store which include the following:Animations, Audio, BasicBandit, BloodDecalsAndRffects, Controllers, HousePack, Metal_Barrels, Scenes, True Explosions, Tutoriallnfo.
+   -  The project includes a mix of provided and downloaded assets from the Unity Asset Store which include the following:Animations, Audio, BasicBandit, BloodDecalsAndRffects, Controllers, Wastern, Metal_Barrels, Scenes, True Explosions, Tutoriallnfo.
