@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class BanditMovement : MonoBehaviour
 {
     public float moveSpeed = 2f;
-    public float minSpeedForWalk = 1f; 
+    public float minSpeedForWalk = 1f;
+    public CutsceneManager cutsceneManager;
     private Transform cameraTransform;
     private Animator animator;
     private bool isMoving;
@@ -16,7 +18,7 @@ public class BanditMovement : MonoBehaviour
 
     void Update()
     {
-        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("death1"))
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("death1") && !cutsceneManager.isCutscenePlaying)
         {
             Vector3 direction = cameraTransform.position - transform.position;
             direction.y = 0;
