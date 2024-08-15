@@ -14,6 +14,7 @@ public class GunCameraController : MonoBehaviour
         cameraTransform.parent = gunTransform;
         cameraTransform.localPosition = Vector3.zero;
 
+
         cameraTransform.localRotation = gunTransform.localRotation;
     }
 
