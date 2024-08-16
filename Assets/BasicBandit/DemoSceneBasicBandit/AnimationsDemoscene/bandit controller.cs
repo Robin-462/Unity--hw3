@@ -5,6 +5,7 @@ public class BanditController : MonoBehaviour
     private Animator animator;
     private Rigidbody rb;
     public Transform gunTransform;
+
     public float moveSpeed = 5f;
 
     void Start()
@@ -24,6 +25,7 @@ public class BanditController : MonoBehaviour
         }
 
         GameObject pistolObject = GameObject.Find("pistol 92");
+        
         if (pistolObject!= null)
         {
             gunTransform = pistolObject.transform;
@@ -36,6 +38,7 @@ public class BanditController : MonoBehaviour
 
     void Update()
     {
+
         Vector3 directionToGun = (gunTransform.position - transform.position).normalized;
         Vector3 movement = directionToGun * moveSpeed * Time.deltaTime;
 

@@ -23,11 +23,12 @@ public class CutsceneManager : MonoBehaviour
     {
         if (isCutscenePlaying)
         {
-            // Check for escape key press
-            if (Input.GetKeyDown(KeyCode.Escape))
+            // Check for escape key press or end of cutscene
+            if (Input.GetKeyDown(KeyCode.Escape) || cutsceneDirector.time >= cutsceneDirector.duration - 1f)
             {
                 SkipCutscene();
             }
+
         }
     }
 
@@ -41,7 +42,7 @@ public class CutsceneManager : MonoBehaviour
     void TransitionToGameplay()
     {
         // Activate gameplay camera
-        gameplayCamera.Priority = 100; // Or any high priority value
+        gameplayCamera.Priority = 100;
 
         // Enable player control
         playerController.enabled = true;

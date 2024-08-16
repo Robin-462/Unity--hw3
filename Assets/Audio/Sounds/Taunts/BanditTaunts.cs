@@ -4,22 +4,34 @@ public class BanditTaunts : MonoBehaviour
 {
     public AudioClip[] taunts;
     public AudioSource audioSource;
+    public CutsceneManager cutsceneManager;
 
-    private float minTimeBetweenTaunts = 10f;
-    private float maxTimeBetweenTaunts = 30f;
+    private float minTimeBetweenTaunts;
+    private float maxTimeBetweenTaunts;
 
     void Start()
     {
-        if (audioSource == null)
+        minTimeBetweenTaunts = 10f;
+        maxTimeBetweenTaunts = 30f;
+    }
+
+    void Update()
+    {
+        if(!cutsceneManager.isCutscenePlaying)
         {
-            audioSource = GetComponent<AudioSource>();
             if (audioSource == null)
             {
-                audioSource = gameObject.AddComponent<AudioSource>();
-            }
-        }
+                audioSource = GetComponent<AudioSource>();
 
-        StartCoroutine(PlayTaunts());
+                if (audioSource == null)
+                {
+                    audioSource = gameObject.AddComponent<AudioSource>();
+                }
+            }
+
+            StartCoroutine(PlayTaunts());
+        }
+       
     }
 
     private System.Collections.IEnumerator PlayTaunts()
