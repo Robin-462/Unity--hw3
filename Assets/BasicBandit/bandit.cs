@@ -4,6 +4,7 @@ public class bandit : MonoBehaviour
 {
     public int health = 100;
     public GameObject BloodSprayFX;
+    public CutsceneManager cutsceneManager;
     private Animator animator;
     private bool IsMoving = false;
     public AudioClip deathSound;
@@ -22,9 +23,9 @@ public class bandit : MonoBehaviour
     {
         distanceToCamera = Vector3.Distance(Camera.main.transform.position, transform.position);
 
-        //IsMoving = true; 
+        IsMoving = true; 
 
-        if (IsMoving)
+        if (IsMoving && !cutsceneManager.isCutscenePlaying)
         {
             if (distanceToCamera <= 10f)
             {

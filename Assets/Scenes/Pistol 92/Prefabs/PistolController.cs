@@ -42,9 +42,11 @@ public class PistolController : MonoBehaviour
         }
 
         Transform muzzle = transform.Find("Muzzle");
+        
         if (muzzle != null)
         {
             GameObject bullet = Instantiate(bulletPrefab, muzzle.position, Quaternion.identity);
+
             bullet.GetComponent<Rigidbody>().velocity = shootDirection * 10f;
             bullet.transform.rotation = Quaternion.LookRotation(shootDirection);
 

@@ -8,14 +8,18 @@ public class CutsceneManager : MonoBehaviour
 {
     public PlayableDirector cutsceneDirector; 
     public CinemachineVirtualCamera gameplayCamera; // Reference to the gameplay camera
-    public PlayerController playerController; // Reference to the player controller
+    public CowboyController cowboyController; // Reference to the player controller
+    public GameObject objectBGM;
     public bool isCutscenePlaying = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        isCutscenePlaying = true;
         cutsceneDirector.Play();
+        isCutscenePlaying = true;
+
+        cowboyController.enabled = false;
+        objectBGM.SetActive(false);
     }
 
     // Update is called once per frame
@@ -36,6 +40,7 @@ public class CutsceneManager : MonoBehaviour
     {
         cutsceneDirector.Stop();
         isCutscenePlaying = false;
+        objectBGM.SetActive(true);
         TransitionToGameplay();
     }
 
@@ -45,6 +50,6 @@ public class CutsceneManager : MonoBehaviour
         gameplayCamera.Priority = 100;
 
         // Enable player control
-        playerController.enabled = true;
+        cowboyController.enabled = true;
     }
 }
