@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -928,7 +928,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 6322944795806320946, guid: 82f447412ae4a4fa88a0ff4a8d03bb4e,
     type: 3}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 494819370}
 --- !u!114 &494819368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -941,7 +941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34af85bd42df3431fbd4799d7b99a7eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  barrelSound: {fileID: 0}
+  barrelSound: {fileID: 8300000, guid: 2be9f6149e96f5643b67a54bc26666aa, type: 3}
 --- !u!4 &494819369 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 7c0d4d6ccc753ef45ad79c580938a86c,
@@ -1343,6 +1343,7 @@ MonoBehaviour:
   health: 100
   BloodSprayFX: {fileID: 1962516439210982, guid: 3c657dedc43d33a4987fbf09e6363067,
     type: 3}
+  cutsceneManager: {fileID: 0}
   deathSound: {fileID: 8300000, guid: 37480268c48c2d348a741d5b64f2e5d1, type: 3}
   footstepSound: {fileID: 8300000, guid: 03b9b695f299f6a4095144bb5bdb4e81, type: 3}
 --- !u!65 &623140257
@@ -5240,7 +5241,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1769217604530678, guid: b32c7959973c2cc489a5a0fcec92c87a, type: 3}
       propertyPath: m_Name
-      value: Supply Store
+      value: SupplyStore
       objectReference: {fileID: 0}
     - target: {fileID: 4764298106409884, guid: b32c7959973c2cc489a5a0fcec92c87a, type: 3}
       propertyPath: m_RootOrder
@@ -6916,6 +6917,7 @@ MonoBehaviour:
   health: 100
   BloodSprayFX: {fileID: 1962516439210982, guid: 3c657dedc43d33a4987fbf09e6363067,
     type: 3}
+  cutsceneManager: {fileID: 0}
   deathSound: {fileID: 8300000, guid: 37480268c48c2d348a741d5b64f2e5d1, type: 3}
   footstepSound: {fileID: 8300000, guid: 1b5d95694e75a474890f27337b4ae685, type: 3}
 --- !u!65 &1337301944
@@ -9368,6 +9370,7 @@ MonoBehaviour:
   health: 100
   BloodSprayFX: {fileID: 1962516439210982, guid: 3c657dedc43d33a4987fbf09e6363067,
     type: 3}
+  cutsceneManager: {fileID: 0}
   deathSound: {fileID: 8300000, guid: 37480268c48c2d348a741d5b64f2e5d1, type: 3}
   footstepSound: {fileID: 8300000, guid: 699047e5ba06c0b49a323e86a837d6c6, type: 3}
 --- !u!65 &1613310126
@@ -14104,6 +14107,7 @@ MonoBehaviour:
   health: 100
   BloodSprayFX: {fileID: 1962516439210982, guid: 3c657dedc43d33a4987fbf09e6363067,
     type: 3}
+  cutsceneManager: {fileID: 0}
   deathSound: {fileID: 8300000, guid: 37480268c48c2d348a741d5b64f2e5d1, type: 3}
   footstepSound: {fileID: 8300000, guid: 2e3de2eecf774624f8e29c175373d70b, type: 3}
 --- !u!65 &1853132964
@@ -14239,6 +14243,7 @@ MonoBehaviour:
   health: 100
   BloodSprayFX: {fileID: 1962516439210982, guid: 3c657dedc43d33a4987fbf09e6363067,
     type: 3}
+  cutsceneManager: {fileID: 0}
   deathSound: {fileID: 8300000, guid: 37480268c48c2d348a741d5b64f2e5d1, type: 3}
   footstepSound: {fileID: 8300000, guid: 53d6c4e9e5a359243983b343554c8fa5, type: 3}
 --- !u!65 &1881548174
@@ -15317,7 +15322,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2041809319}
-  m_LocalRotation: {x: -0.009940501, y: -0.7029462, z: -0.009826439, w: 0.7111057}
+  m_LocalRotation: {x: -0.009940507, y: -0.7029462, z: -0.009826446, w: 0.7111057}
   m_LocalPosition: {x: 11.500416, y: 3.778617, z: -7.6901627}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
