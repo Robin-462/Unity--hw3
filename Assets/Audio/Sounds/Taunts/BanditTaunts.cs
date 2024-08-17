@@ -25,7 +25,7 @@ public class BanditTaunts : MonoBehaviour
                 audioSource = gameObject.AddComponent<AudioSource>();
             }
 
-            audioSource.volume = 0.5f;
+            audioSource.volume = 0.3f;
         }
     }
 
