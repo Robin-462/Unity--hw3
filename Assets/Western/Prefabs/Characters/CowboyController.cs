@@ -8,7 +8,6 @@ public class CowboyController : MonoBehaviour
     public Transform cameraTransform;
 
     private Animator animator;
-    private bool isMoving;
     private float animationBlendTime = 0.2f;
 
     void Start()
@@ -42,51 +41,42 @@ public class CowboyController : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             moveDirection += transform.forward;
-            isMoving = true;
         }
         if (Input.GetKey(KeyCode.S))
         {
             moveDirection -= transform.forward;
-            isMoving = true;
         }
         if (Input.GetKey(KeyCode.A))
         {
             moveDirection -= transform.right;
-            isMoving = true;
         }
         if (Input.GetKey(KeyCode.D))
         {
             moveDirection += transform.right;
-            isMoving = true;
         }
 
-        moveDirection.y = 0f;
-
-        if (moveDirection!= Vector3.zero)
+        if (moveDirection != Vector3.zero)
         {
             moveDirection.Normalize();
             transform.position += moveDirection * movementSpeed * Time.deltaTime;
 
-            if (animator.GetCurrentAnimatorStateInfo(0).IsName("idle"))
+            if (!animator.GetCurrentAnimatorStateInfo(0).IsName("walk"))
             {
                 animator.CrossFade("walk", animationBlendTime);
             }
         }
         else
         {
-            if (animator.GetCurrentAnimatorStateInfo(0).IsName("walk"))
+            if (!animator.GetCurrentAnimatorStateInfo(0).IsName("idle"))
             {
                 animator.CrossFade("idle", animationBlendTime);
             }
-            isMoving = false;
         }
     }
 
     void HandleRotation()
     {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
-
         transform.Rotate(Vector3.up, mouseX);
     }
 }
