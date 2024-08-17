@@ -928,7 +928,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 6322944795806320946, guid: 82f447412ae4a4fa88a0ff4a8d03bb4e,
     type: 3}
-  audioSource: {fileID: 494819370}
+  pistolSound: {fileID: 8300000, guid: a31f633e313478a49a2a044161aa122b, type: 3}
 --- !u!114 &494819368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11246,6 +11246,26 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1757232207}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1757232210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 623140255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a093654d57e4740158b62db8bd93422e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 0}
+  pistol92Transform: {fileID: 0}
+  minShootInterval: 30
+  maxShootInterval: 60
+  bulletSpeed: 10
+  minAngle: -5
+  maxAngle: 5
+  injuriedSound: {fileID: 0}
 --- !u!1001 &1772875621
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15322,7 +15342,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2041809319}
-  m_LocalRotation: {x: -0.009940507, y: -0.7029462, z: -0.009826446, w: 0.7111057}
+  m_LocalRotation: {x: -0.009940501, y: -0.7029462, z: -0.009826439, w: 0.7111057}
   m_LocalPosition: {x: 11.500416, y: 3.778617, z: -7.6901627}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
