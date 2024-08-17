@@ -19,6 +19,10 @@ and a few bandits (non-player characters – NPCs). Please develop a pseudo-game
    b) Five Foley effects: Footsteps, gunshots, explosions, subtle wind ambience, and bandit pain/death sounds (when shot)
    c) Unique Taunts: Each bandit direct 2 - 3 taunts to the players
 
+### Core Features
+7. **Monsoon Weather**
+   The dark clouds, rain and lightning were created through the particle system. The wind was also added with the sounds of rain and lightning downloaded from the asset store, and the wind sound used the template sound. The materials were all colored by myself without using the downloaded materials or prefabs.
+
 # Installation Instructions
 
 1. **Setup Unity Project**
