@@ -67,7 +67,7 @@ public class CowboyController : MonoBehaviour
             moveDirection.Normalize();
             transform.position += moveDirection * movementSpeed * Time.deltaTime;
 
-            if (!animator.GetCurrentAnimatorStateInfo(0).IsName("walk"))
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("idle"))
             {
                 animator.CrossFade("walk", animationBlendTime);
             }

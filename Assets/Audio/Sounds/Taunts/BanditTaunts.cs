@@ -8,7 +8,7 @@ public class BanditTaunts : MonoBehaviour
 
     private float minTimeBetweenTaunts;
     private float maxTimeBetweenTaunts;
-    private int tauntCount;  // 记录已播放的 taunt 数量
+    private int tauntCount;
 
     void Start()
     {
