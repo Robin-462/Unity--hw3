@@ -1,31 +1,38 @@
 using UnityEngine;
 using System.Collections;
 
-public class LightningStrike : MonoBehaviour
+public class Lighting : MonoBehaviour
 {
-    public float strikeIntervalMin = 5f;
-    public float strikeIntervalMax = 15f;
+    public float strikeIntervalMin = 30f;
+    public float strikeIntervalMax = 60f;
     public float strikeDuration = 0.1f;
-    public Vector3 cloudHeight = new Vector3(0, 80, 0);
+    public Vector3 cloudHeight = new Vector3(51, 73, 58);
+    public AudioClip lightningSound;
 
     private float timer;
     private bool isStriking;
+    private ParticleSystem lightningParticleSystem;
+    private AudioSource audioSource;
 
     void Start()
     {
+        lightningParticleSystem = GetComponent<ParticleSystem>();
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.clip = lightningSound;
         timer = Random.Range(strikeIntervalMin, strikeIntervalMax);
         transform.position = cloudHeight;
-        transform.localScale = new Vector3(0.2f, 10f, 0.2f);
-        gameObject.SetActive(false);
     }
 
     void Update()
     {
         timer -= Time.deltaTime;
 
-        if (timer <= 0 && !isStriking)
+        if (timer <= 0)
         {
-            StartCoroutine(StrikeLightning());
+            if (!isStriking)
+            {
+                StartCoroutine(StrikeLightning());
+            }
             timer = Random.Range(strikeIntervalMin, strikeIntervalMax);
         }
     }
@@ -33,9 +40,10 @@ public class LightningStrike : MonoBehaviour
     private IEnumerator StrikeLightning()
     {
         isStriking = true;
-        gameObject.SetActive(true);
+        lightningParticleSystem.Play();
+        audioSource.Play();
         yield return new WaitForSeconds(strikeDuration);
-        gameObject.SetActive(false);
+        lightningParticleSystem.Stop();
         isStriking = false;
     }
 }
