@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Lighting : MonoBehaviour
 {
-    public float strikeDuration = 5f;
+    public float strikeDuration = 1f;
     public AudioClip lightningSound;
 
     private float timer;
