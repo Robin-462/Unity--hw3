@@ -7,7 +7,9 @@ public class CowboyController : MonoBehaviour
     public Transform pistolTransform;
     public Transform cameraTransform;
 
-    private float pitch = 0f;
+    private Animator animator;
+    private bool isMoving;
+    private float animationBlendTime = 0.2f;
 
     void Start()
     {
@@ -17,12 +19,20 @@ public class CowboyController : MonoBehaviour
             return;
         }
         Cursor.lockState = CursorLockMode.Locked;
+
+        animator = GetComponent<Animator>();
+        animator.Play("idle");
     }
 
     void Update()
     {
         HandleMovement();
         HandleRotation();
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            animator.Play("front_kick");
+        }
     }
 
     void HandleMovement()
@@ -32,26 +42,43 @@ public class CowboyController : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             moveDirection += transform.forward;
+            isMoving = true;
         }
         if (Input.GetKey(KeyCode.S))
         {
             moveDirection -= transform.forward;
+            isMoving = true;
         }
         if (Input.GetKey(KeyCode.A))
         {
             moveDirection -= transform.right;
+            isMoving = true;
         }
         if (Input.GetKey(KeyCode.D))
         {
             moveDirection += transform.right;
+            isMoving = true;
         }
 
         moveDirection.y = 0f;
 
-        if (moveDirection != Vector3.zero)
+        if (moveDirection!= Vector3.zero)
         {
             moveDirection.Normalize();
             transform.position += moveDirection * movementSpeed * Time.deltaTime;
+
+            if (!animator.GetCurrentAnimatorStateInfo(0).IsName("walk"))
+            {
+                animator.CrossFade("walk", animationBlendTime);
+            }
+        }
+        else
+        {
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("walk"))
+            {
+                animator.CrossFade("idle", animationBlendTime);
+            }
+            isMoving = false;
         }
     }
 
@@ -61,11 +88,5 @@ public class CowboyController : MonoBehaviour
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
 
         transform.Rotate(Vector3.up, mouseX);
-
-        pitch -= mouseY;
-        pitch = Mathf.Clamp(pitch, -90f, 90f);
-
-        //cameraTransform.localRotation = Quaternion.Euler(pitch, 0f, 0f);
     }
 }
-

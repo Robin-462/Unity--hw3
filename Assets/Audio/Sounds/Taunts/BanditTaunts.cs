@@ -8,42 +8,47 @@ public class BanditTaunts : MonoBehaviour
 
     private float minTimeBetweenTaunts;
     private float maxTimeBetweenTaunts;
+    private int tauntCount;  // 记录已播放的 taunt 数量
 
     void Start()
     {
         minTimeBetweenTaunts = 10f;
         maxTimeBetweenTaunts = 30f;
+        tauntCount = 0;
+
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+
+            if (audioSource == null)
+            {
+                audioSource = gameObject.AddComponent<AudioSource>();
+            }
+
+            audioSource.volume = 0.5f;
+        }
     }
 
     void Update()
     {
-        if(!cutsceneManager.isCutscenePlaying)
+        if (!cutsceneManager.isCutscenePlaying)
         {
-            if (audioSource == null)
+            if (tauntCount < 3)
             {
-                audioSource = GetComponent<AudioSource>();
-
-                if (audioSource == null)
-                {
-                    audioSource = gameObject.AddComponent<AudioSource>();
-                }
+                StartCoroutine(PlayTaunts());
             }
-
-            StartCoroutine(PlayTaunts());
         }
-       
     }
 
     private System.Collections.IEnumerator PlayTaunts()
     {
-        while (true)
+        if (taunts.Length > 0)
         {
-            if (taunts.Length > 0)
-            {
-                int randomIndex = Random.Range(0, taunts.Length);
-                AudioClip selectedTaunt = taunts[randomIndex];
-                audioSource.PlayOneShot(selectedTaunt);
-            }
+            int randomIndex = Random.Range(0, taunts.Length);
+            AudioClip selectedTaunt = taunts[randomIndex];
+            audioSource.PlayOneShot(selectedTaunt);
+            tauntCount++;
+
             float waitTime = Random.Range(minTimeBetweenTaunts, maxTimeBetweenTaunts);
             yield return new WaitForSeconds(waitTime);
         }
