@@ -13,7 +13,7 @@ public class BanditTaunts : MonoBehaviour
     void Start()
     {
         minTimeBetweenTaunts = 10f;
-        maxTimeBetweenTaunts = 30f;
+        maxTimeBetweenTaunts = 60f;
         tauntCount = 0;
 
         if (audioSource == null)
