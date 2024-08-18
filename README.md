@@ -5,14 +5,16 @@ A first-person action game set in the American Wild West called “A Palmful of 
 and a few bandits (non-player characters – NPCs). Please develop a pseudo-game 
 # Implemented Features
 ### Core Features
-3. **Shoot at Targets**
+2. **Player can Kick:**
+   Apply character to kick by animator.
+4. **Shoot at Targets**
    Player shooting:
    Target types:
    Barrels: Full of TNT, explode spectacularly when hit using a particle system. Delete the barrel object and replace with debris on explosion finish.
    Bandits: Play death animation with the bandit's animation controller when hit.
    Bullet firing: Press 'F' key. Spawn bullet prefabs and send along player's line of sight, detect collisions.
    Fire rate limit: 1 shot per second.
-4. **Dynamic Soundtrack:**
+5. **Dynamic Soundtrack:**
    a) Suspense Sound: player gets near the Supply Store
       Fight Sound: player gets start shooting
       Default Sound: The other two sounds are not played.
