@@ -9,7 +9,8 @@ and a few bandits (non-player characters – NPCs). Please develop a pseudo-game
    - Implemented a cutscene camera in the initial start of the game that lasts for a total of 52 seconds
    - Allow for player to be able to press the "esc" key at any time to terminate it and go to the beginning of the game
    - At the end of the cutscene, transitions to 3rd person camera that is centered on the character
-   - Apply character to move through the use of clicking the W, A, S, D keys
+   - Apply character to move with walk animation through the use of clicking the W, A, S, D keys
+   - If W, A, S, D are not pushed, character will return to idle animation state
 3. **Player can Kick:**
    - Apply character to click keyboard space to kick by animator.
 4. **Shoot at Targets** 
