@@ -8,7 +8,6 @@ public class CowboyController : MonoBehaviour
     public Transform cameraTransform;
 
     private Animator animator;
-    private float animationBlendTime = 0.2f;
 
     void Start()
     {
@@ -26,7 +25,6 @@ public class CowboyController : MonoBehaviour
     void Update()
     {
         HandleMovement();
-        HandleRotation();
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -37,46 +35,43 @@ public class CowboyController : MonoBehaviour
     void HandleMovement()
     {
         Vector3 moveDirection = Vector3.zero;
+        bool isMoving = false;
 
         if (Input.GetKey(KeyCode.W))
         {
             moveDirection += transform.forward;
+            isMoving = true;
         }
         if (Input.GetKey(KeyCode.S))
         {
             moveDirection -= transform.forward;
+            isMoving = true;
         }
         if (Input.GetKey(KeyCode.A))
         {
             moveDirection -= transform.right;
+            isMoving = true;
         }
         if (Input.GetKey(KeyCode.D))
         {
             moveDirection += transform.right;
+            isMoving = true;
         }
-
-        if (moveDirection != Vector3.zero)
+        if (isMoving)
         {
-            moveDirection.Normalize();
-            transform.position += moveDirection * movementSpeed * Time.deltaTime;
-
             if (!animator.GetCurrentAnimatorStateInfo(0).IsName("walk"))
             {
-                animator.CrossFade("walk", animationBlendTime);
+                animator.CrossFade("walk", 0); 
             }
+            moveDirection.Normalize();
+            transform.position += moveDirection * movementSpeed * Time.deltaTime;
         }
         else
         {
             if (!animator.GetCurrentAnimatorStateInfo(0).IsName("idle"))
             {
-                animator.CrossFade("idle", animationBlendTime);
+                animator.CrossFade("idle", 0); 
             }
         }
-    }
-
-    void HandleRotation()
-    {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
-        transform.Rotate(Vector3.up, mouseX);
     }
 }
