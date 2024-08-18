@@ -20,12 +20,8 @@ public class CowboyController : MonoBehaviour
             return;
         }
         Cursor.lockState = CursorLockMode.Locked;
-
-        // 初始化摄像头的旋转，使其与角色保持一致
         rotationY = transform.eulerAngles.y;
         cameraTransform.rotation = Quaternion.Euler(0f, rotationY, 0f);
-
-        // 确保摄像头的Z轴没有旋转（防止上下颠倒）
         cameraTransform.localRotation = Quaternion.Euler(cameraTransform.localEulerAngles.x, cameraTransform.localEulerAngles.y, 0f);
 
         animator = GetComponent<Animator>();
@@ -87,8 +83,6 @@ public class CowboyController : MonoBehaviour
 
         rotationY += mouseX;
         transform.rotation = Quaternion.Euler(0f, rotationY, 0f);
-
-        // 同步摄像头的Y轴旋转，并保持Z轴为0（避免反转）
         cameraTransform.rotation = Quaternion.Euler(cameraTransform.localEulerAngles.x, rotationY, 0f);
     }
 }
