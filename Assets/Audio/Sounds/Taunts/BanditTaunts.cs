@@ -29,11 +29,11 @@ public class BanditTaunts : MonoBehaviour
         }
     }
 
-    void Update()
+  void Update()
     {
         if (!cutsceneManager.isCutscenePlaying)
         {
-            if (tauntCount < 3)
+            if (tauntCount < 1)
             {
                 StartCoroutine(PlayTaunts());
             }
@@ -42,7 +42,7 @@ public class BanditTaunts : MonoBehaviour
 
     private System.Collections.IEnumerator PlayTaunts()
     {
-        if (taunts.Length > 0)
+        if ((tauntCount == 0))
         {
             int randomIndex = Random.Range(0, taunts.Length);
             AudioClip selectedTaunt = taunts[randomIndex];
@@ -52,5 +52,6 @@ public class BanditTaunts : MonoBehaviour
             float waitTime = Random.Range(minTimeBetweenTaunts, maxTimeBetweenTaunts);
             yield return new WaitForSeconds(waitTime);
         }
+            tauntCount--;
     }
 }
