@@ -6,7 +6,7 @@ and a few bandits (non-player characters – NPCs). Please develop a pseudo-game
 # Implemented Features
 ### Core Features
 2. **Player can Kick:**
-   Apply character to kick by animator.
+   Apply character to click keyboard space to kick by animator.
 4. **Shoot at Targets**
    Player shooting:
    Target types:
